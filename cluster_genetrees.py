@@ -5,7 +5,7 @@ import os
 
 global rep
 
-GRAPHCOLORINGJAVA="%s/graphColoring/code" %os.environ["BIN_HOME"]
+GRAPHCOLORINGJAVA="%s/graphColoring/code" %os.environ["BINNING_HOME"]
 
 rep=""
 

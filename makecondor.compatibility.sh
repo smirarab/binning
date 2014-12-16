@@ -11,7 +11,6 @@ f=$4
 mkdir -p $out
 
 pd=`pwd`
-TMPDIR=$pd
 all=`mktemp temp.XXXXX`
 ls $dir/*/$f>$all.order
 cat $all.order|xargs cat > $all.full

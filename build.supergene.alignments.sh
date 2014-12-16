@@ -25,7 +25,7 @@ for y in `wc -l $BINDIR/bin*txt|grep -v total|awk '{if ($1>1)print $2}'`; do
   cat $y|xargs -I@ echo $GENEDIR/@/@.$EXT >.t;  
   x=`echo $y|sed -e "s/.*bin/bin/g"`
   mkdir $OUTDIR/$x
-  $BIN_HOME/perl/concatenate_alignments.pl -i `pwd`/.t -o `pwd`/$OUTDIR/$x/$OUTFILE.fasta -p `pwd`/$OUTDIR/$x/$OUTFILE.part;
+  $BINNING_HOME/perl/concatenate_alignments.pl -i `pwd`/.t -o `pwd`/$OUTDIR/$x/$OUTFILE.fasta -p `pwd`/$OUTDIR/$x/$OUTFILE.part;
   tail -n1 `pwd`/$OUTDIR/$x/$OUTFILE.part 
   # convert_to_phylip.sh `pwd`/913supergenes/$x/sate.noout.fasta 913supergenes/$x/sate.noout.phylip; 
   echo $x done; 
