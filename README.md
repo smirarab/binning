@@ -28,23 +28,22 @@ directory `genes_dir/300/RAxML_bootstrap.final`, and if so, the tree for gene 30
 
 Once you have your initial gene trees in this structure, to get the bins, you need to:
 
-1- If you have condor, run:
+* **Step 1:** If you have condor, run:
 ``` 
    $BIN_HOME/makecondor.compatibility.sh [genes_dir] [support_threshold (e.g. 50)] [pairwise_output_dir] [tree_file_name]
 ```
    This step generates a condor file (`condor.compat.[support]`) that has all the commands required for calculating all pairwise compatibilities.
-
    If you don't have condor, instead run:
 ``` 
    $BIN_HOME/makecommands.compatibility.sh [genes_dir] [support_threshold (e.g. 50)] [pairwise_output_dir] [tree_file_name]
 ```
    This creates a bash file that includes all the commands that need to be run.
  
-2- run the condor file using `condor_submit condor.compat.[threshold]`.
+* **Step 2:** run the condor file using `condor_submit condor.compat.[threshold]`.
    Alternatively, if you used makecommands in the previous step, use your cluster system to run all the commands in the commands file. 
    If you don't have a cluster, just run `sh commands.compat.[threshold]` 
 
-3- Once the condor jobs have finished (i.e. your runs from previous step have finished), it is time to build the bin definitions.
+* **Step 3:** Once the condor jobs have finished (i.e. your runs from previous step have finished), it is time to build the bin definitions.
    run (be sure to replace 50 with support threshold you used in step 1):
 ``` 
    cd [pairwise_output_dir]; 
@@ -54,7 +53,7 @@ Once you have your initial gene trees in this structure, to get the bins, you ne
   once this finished, you have all your bins defined in text files called bin.0.txt, bin.1.txt, etc inside [pairwise_output_dir]. 
   You can look at these and examine bin sizes if you want. 
 
-4- Now is time to actually concatenate all the gene alignments for each bin and to create the supergene alignments.
+* **Step 4:** Now is time to actually concatenate all the gene alignments for each bin and to create the supergene alignments.
    Go to the place where you want to have your supergene alignments saved:
 ```
    $BIN_HOME/build.supergene.alignments.sh [pairwise_output_dir] [genes_dir]
