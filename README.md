@@ -83,7 +83,7 @@ Now is time to actually concatenate all the gene alignments for each bin and to 
 
 Now you can use your favorite tree estimation software to estimate gene trees for each of these supergenes. The `.part` files can be used for a *recommended* partitioned analysis (e.g. using RAxML).
 
-** Step 6:** 
+**Step 6:** 
 
 Run your supergenes through your favorite summary method (e.g. ASTRAL, MP-EST, etc.)
 
@@ -91,7 +91,7 @@ Run your supergenes through your favorite summary method (e.g. ASTRAL, MP-EST, e
 ### Notes:
 
 * **MLBS:** If you would like to run a MLBS pipeline, once you created the supergene alignments, you need to run a bootstrapped analysis for each bin in step 5. Once you do this, you can use your own scripts, or scripts we provide in [this github repository](smirarab/multi-locus-bootstrapping).
-* ** Weighting:** In step 6, you could weight each bin by its size. This is **recommended** as our new under review manuscript argues. To do this weighting, you need to replicate each gene tree by number of lines in the `.part` file generated for each supergene. 
+* **Weighting:** In step 6, you could weight each bin by its size. This is **recommended** as our new under review manuscript argues. To do this weighting, you need to replicate each gene tree by number of lines in the `.part` file generated for each supergene. 
 
 
 Acknowledgment
