@@ -1,8 +1,8 @@
 Requirements
 ==========
 The current pipeline has been developed and used only on Linux. It should run on all nix platforms.
-The current pipeline mostly uses a Condor cluster for running jobs on distributed systems in parallel.
-However, changing the pipeline to work with other clusters should be relatively straight-forward. 
+The current pipeline uses a Condor cluster for running jobs on distributed systems in parallel.
+However, changing the pipeline to work with other clusters should be relatively straight-forward. Also, if you don't have a cluster, you can use the pipeline to build command files that can be run in serial. 
 
 The following are required.
 
@@ -85,18 +85,19 @@ Now you can use your favorite tree estimation software to estimate gene trees fo
 
 **Step 6:** 
 
-Run your supergenes through your favorite summary method (e.g. ASTRAL, MP-EST, etc.)
+Run your supergenes through your favorite summary method (e.g. ASTRAL, MP-EST, etc.). For doing this, you might want to 1) use MLBS, and 2) weight each bin by the number of genes put in that bin. See notes below for both of these extra steps.
 
 ---
 ### Notes:
 
-* **MLBS:** If you would like to run a MLBS pipeline, once you created the supergene alignments, you need to run a bootstrapped analysis for each bin in step 5. Once you do this, you can use your own scripts, or scripts we provide in [this github repository](https://github.com/smirarab/multi-locus-bootstrapping).
-* **Weighting:** In step 6, you could weight each bin by its size. This is **recommended** as our new under review manuscript argues. To do this weighting, you need to replicate each gene tree by number of lines in the `.part` file generated for each supergene. 
+* **MLBS:** If you would like to run a multi-locus bootstrapping (MLBS) pipeline, once you created the supergene alignments, you need to run a bootstrapped analysis for each bin in step 5 and get bootstrapped gene trees. You can then use your own scripts for building replicate inputs to the summary method, or you can use scripts we provide in [this github repository](https://github.com/smirarab/multi-locus-bootstrapping).
+
+* **Weighting:** In step 6, you could weight each bin by its size. That is, you can repeat the supergene tree by the size of the bin. This is the **recommended** approach, as our new currently-under-review manuscript suggests. To do this weighting, you need to replicate each gene tree by number of lines in the `.part` file generated for each supergene. Our multi-locus bootstrapping code has an option for weighting. Even if you are just using maximum likelihood gene trees (as opposed to MLBS), you can run our MLBS code with 1 replicate and giving it weight files, and it will create a weighted input file that you can then use. 
 
 
 Acknowledgment
 ========
 In our pipeline, we use few scripts developed by others:
 
-1. Our graph coloring code is a modification of [code](http://shah.freeshell.org/graphcoloring/) by Shalin Shah
-2. Our compatibility code is based on the older versions of [phylonet](http://bioinfo.cs.rice.edu/phylonet) with some reverse-engineering and code modifications
+1. Our graph coloring code is a modification of [a Java code](http://shah.freeshell.org/graphcoloring/) by Shalin Shah.
+2. Our compatibility code is based on an older versions of [phylonet](http://bioinfo.cs.rice.edu/phylonet) with some reverse-engineering and code modifications to increase speed and fix bugs. 
