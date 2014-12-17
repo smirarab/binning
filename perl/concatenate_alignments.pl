@@ -11,7 +11,7 @@
 
 # pick up global settings
 #use FindBin qw($Bin);
-use lib "$ENV{BIN_HOME}/perl";
+use lib "$ENV{BINNING_HOME}/perl";
 use setenv;
 use framework;
 # also make environment changes
