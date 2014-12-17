@@ -100,4 +100,3 @@ In our pipeline, we use few scripts developed by others:
 
 1. Our graph coloring code is a modification of [code](http://shah.freeshell.org/graphcoloring/) by Shalin Shah
 2. Our compatibility code is based on the older versions of [phylonet](http://bioinfo.cs.rice.edu/phylonet) with some reverse-engineering and code modifications
-3. Our code to concatenate alignments is based on a perl scripts that has been lying around in our lab and we need to figure out who develped it (maybe [Kevin Liu](http://www.cse.msu.edu/~kjl/) or [Li-Sang Wang](http://tesla.pcbi.upenn.edu/~lswang/)).
