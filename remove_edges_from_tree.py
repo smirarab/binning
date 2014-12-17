@@ -1,4 +1,4 @@
-#!/lusr/bin/python
+#!/usr/bin/env python
 '''
 Created on Jun 3, 2013
 
