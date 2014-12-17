@@ -15,7 +15,7 @@ all=`mktemp temp.XXXXX`
 ls $dir/*/$f>$all.order
 cat $all.order|xargs cat > $all.full
 
-python $BIN_HOME/remove_edges_from_tree.py $all.full $support $all -strip-both
+python $BINNING_HOME/remove_edges_from_tree.py $all.full $support $all -strip-both
 
 echo "+Group = \"GRAD\"
 +Project = \"COMPUTATIONAL_BIOLOGY\"
@@ -25,7 +25,7 @@ Universe = vanilla
 
 Requirements = Arch == \"X86_64\" 
 
-executable = $BIN_HOME/runcompat.sh
+executable = $BINNING_HOME/runcompat.sh
 
 Log = logs/compatibility-$dir-$support.log
 
