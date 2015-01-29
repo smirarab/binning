@@ -7,6 +7,7 @@ dir=$1
 support=$2
 out=$3
 f=$4 
+cfile=condor.compat.$support.`echo $dir|sed -e "s:/:_:g"`
 
 mkdir -p $out
 
@@ -27,15 +28,15 @@ Requirements = Arch == \"X86_64\"
 
 executable = $BINNING_HOME/runcompat.sh
 
-Log = logs/compatibility-$dir-$support.log
+Log = logs/$cfile-$support.log
 
 getEnv=True 
-">condor.compat.$support
+">$cfile
 
 for x in `ls $dir`; do
     echo "
  Arguments = $dir $f $x $all $support
  Error=/dev/null
  Output=$out/$x.$support
- Queue">>condor.compat.$support
+ Queue">>$cfile
 done

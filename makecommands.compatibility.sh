@@ -19,8 +19,8 @@ cat $all.order|xargs cat > $all.full
 python $BINNING_HOME/remove_edges_from_tree.py $all.full $support $all -strip-both
 
 executable=$BINNING_HOME/runcompat.sh
-echo "#!/bin/bash" >commands.compat.$support
+echo "#!/bin/bash" >commands.compat.$support.`echo $dir|sed -e "s:/:_:g"`
 for x in `ls $dir`; do
     echo "
-$executable  $dir $f $x $all $support 1>$out/$x.$support">>commands.compat.$support
+$executable  $dir $f $x $all $support 1>$out/$x.$support">>commands.compat.$support.`echo $dir|sed -e "s:/:_:g"`
 done
