@@ -5,7 +5,8 @@ test $# -gt 1 || exit 1
 
 BINDIR=$1
 GENEDIR="$2"
-OUTDIR="supergenes"
+OUTDIR="$3"
+OUTFILE="supergene"
 
 EXT=fasta
 
