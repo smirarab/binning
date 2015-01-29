@@ -75,9 +75,10 @@ Now is time to actually concatenate all the gene alignments for each bin and to 
    Go to the place where you want to have your supergene alignments saved, and run:
    
 ```
-   $BINNING_HOME/build.supergene.alignments.sh [pairwise_output_dir] [genes_dir]
+   $BINNING_HOME/build.supergene.alignments.sh [pairwise_output_dir] [genes_dir] [supergenes_output_directory]
 ``` 
-   This will create a directory called supergenes and will put all the supergene alignments in there. For each supergene, it will also create a `.part` file that tells you what genes are put in the supergene alignment, and the boundary between those genes.
+   This will create the directory given with `[supergenes_output_directory]` and will put all the supergene alignments in there. 
+   For each supergene, it will also create a `.part` file that tells you what genes are put in the supergene alignment, and the boundary between those genes.
 
 **Step 5:** 
 
