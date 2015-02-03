@@ -67,7 +67,7 @@ Once your runs from previous step have finished, it is time to build the bin def
 ```
   
 Once this finished, you have all your bins defined in text files called `bin.0.txt`, `bin.1.txt`, etc inside the `[pairwise_output_dir]` directory. 
-  You can look at these and examine bin sizes if you want (e.g. run `wc -l [pairwise_output_dir]/bin.*.txt`). 
+  You can look at these and examine bin sizes if you want (e.g. run `wc -l [pairwise_output_dir]/bin.*.txt`).
 
 **Step 4:** 
 
@@ -79,10 +79,15 @@ Now is time to actually concatenate all the gene alignments for each bin and to 
 ``` 
    This will create the directory given with `[supergenes_output_directory]` and will put all the supergene alignments in there. 
    For each supergene, it will also create a `.part` file that tells you what genes are put in the supergene alignment, and the boundary between those genes.
+   **Note:** For bins of size 1, if they exist, a warning is issued. This warning should be taken into accont. You already have a gene tree
+   on these bins and therefore you might just want to make symlink instead of rerunning the gene tree estimation step. Look at 
+   `$BINNING_HOME/build.supergene.alignments.sh` for commented lines that can be adjusted to create symlinks for your file structure. 
 
 **Step 5:** 
 
-Now you can use your favorite tree estimation software to estimate gene trees for each of these supergenes. The `.part` files can be used for a *recommended* partitioned analysis (e.g. using RAxML).
+Now you can use your favorite tree estimation software to estimate gene trees for each of these supergenes. 
+The `.part` files can be used for a *recommended* partitioned analysis (e.g. using RAxML).
+Note that we recomment when computationally feasible, use `-M` in RAxML to enable a full partitioned analysis with re-estimation of branch length
 
 **Step 6:** 
 
