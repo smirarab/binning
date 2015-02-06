@@ -15,4 +15,4 @@ else
   python $BINNING_HOME/remove_edges_from_tree.py $dir/$x/$f $supp $temp -strip-both
 fi
 
-$BINNING_HOME/compareTrees.compatibility $temp $all |paste -d " " $all.order - | sed -e "s:"$dir.":"$x" :g" -e "s:/[^ ]* : :g"
+$BINNING_HOME/compareTrees.compatibility $temp $all |paste -d " " $all.order - | sed -e "s:^"$dir"/:"$x" :g" -e "s:/[^ ]* : :g"
