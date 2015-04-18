@@ -90,7 +90,7 @@ Now is time to actually concatenate all the gene alignments for each bin and to 
 **Step 5:** 
 
 Now you can use your favorite tree estimation software to estimate gene trees for each of these supergenes. 
-The `.part` files can be used for a **recommended** partitioned analysis (e.g. using RAxML).
+The `.part` files can be used for a **strongly recommended** partitioned analysis (e.g. using RAxML).
 
 **Step 6:** 
 
@@ -101,11 +101,11 @@ Run your supergenes through your favorite summary method (e.g. ASTRAL, MP-EST, e
 
 * **MLBS:** If you would like to run a multi-locus bootstrapping (MLBS) pipeline, once you created the supergene alignments, you need to run a bootstrapped analysis for each bin in step 5 and get bootstrapped gene trees. You can then use your own scripts for building replicate inputs to the summary method, or you can use scripts we provide in [this github repository](https://github.com/smirarab/multi-locus-bootstrapping).
 
-* **Weighting:** In step 6, you could weight each bin by its size. That is, you can repeat the supergene tree by the size of the bin. This is the **recommended** approach, as our new [currently-under-review](http://arxiv.org/abs/1412.5454) manuscript suggests. To do this weighting, you need to replicate each gene tree by number of lines in the `.part` file generated for each supergene. Our multi-locus bootstrapping code has an option for weighting. Even if you are just using maximum likelihood gene trees (as opposed to MLBS), you can run our MLBS code with 1 replicate and giving it weight files, and it will create a weighted input file that you can then use. 
+* **Weighting:** In step 6, you could weight each bin by its size. That is, you can repeat the supergene tree by the size of the bin. This is the **strongly recommended** approach, as our new [currently-under-review](http://arxiv.org/abs/1412.5454) manuscript suggests. To do this weighting, you need to replicate each gene tree by number of lines in the `.part` file generated for each supergene. Our multi-locus bootstrapping code has an option for weighting. Even if you are just using maximum likelihood gene trees (as opposed to MLBS), you can run our MLBS code with 1 replicate and giving it weight files, and it will create a weighted input file that you can then use. 
 
 * **Randomizing:** In step 3, we first make a list of genes and then use this list as input to the graph coloring code. As stated in our paper, there is a randomness inherent in our binning approach, related to how ties are broken when sorting bin sizes. The order of the genes in the input file to the coloring code (here, the file called `genes`) determines how these ties are broken. Thus, for a given order of genes, our coloring code is deterministic. But the arbitrary order of genes can make a difference in the bin formation. We suggest that when computionally feasible, you randomize this `genes` file  (e.g. by using the command `ls| grep -v ge|sed -e "s/.50$//g"|sort -R > genes`) to produce various possible ways of binning and see what parts of the tree are robust to these random choices. 
 
-* **Partitioned analyses:** Please use a partitioned analysis to get your gene trees. Note that we recommend that, when computationally feasible, you should use the `-M` in RAxML to enable a full partitioned analysis with re-estimation of branch lengths. 
+* **Partitioned analyses:** Please use a partitioned analysis to get your gene trees. Note that we recommend that, when computationally feasible, you should use the `-M` in RAxML to enable a full partitioned analysis with re-estimation of branch lengths in addition to the GTR rate matrix and Gamma alpha parameter. 
 
 Acknowledgment
 ========
