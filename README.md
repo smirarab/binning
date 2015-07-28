@@ -7,7 +7,7 @@ However, changing the pipeline to work with other clusters should be relatively 
 The following are required.
 
  * python 2.7
- - Dendropy 3.12 or later
+ - Dendropy 3.12 (note that Dendropy 4.0 or later will not work). 
  - java 
 
 
