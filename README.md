@@ -1,3 +1,12 @@
+Statistical binning refers to the method that we introduced in the following paper
+
+* Shamsuzzoha Md Bayzid, Siavash Mirarab, Bastien Boussau, and Tandy Warnow. “Weighted Statistical Binning: Enabling Statistically Consistent Genome-Scale Phylogenetic Analyses.” PLoS ONE 10, no. 6 (2015): e0129183. [doi:10.1371/journal.pone.0129183](http://dx.doi.org/10.1371/journal.pone.0129183).
+
+* Mirarab, Siavash, Md. Shamsuzzoha Bayzid, Bastien Boussau, and Tandy Warnow. “Statistical binning enables an accurate coalescent-based estimation of the avian tree.” Science 346, no. 6215 (2014). [doi:10.1126/science.1250463](http://www.sciencemag.org/content/346/6215/1250463.full)
+
+
+The code provided here creates the supergene alignmetns (e.g. bins) given a set of bootstrapped gene trees, one per each gene. 
+
 Requirements
 ==========
 The current pipeline has been developed and used only on Linux. It should run on all nix platforms.
