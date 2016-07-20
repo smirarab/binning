@@ -172,7 +172,7 @@ sub process {
     my $inputAlignmentFilename;
     foreach $inputAlignmentFilename (@inputAlignmentFilenames) {
 	# whew - this forces upper case
-	my $inputAlignmentRef = framework::readAlignment($inputAlignmentFilename, 1);
+	my $inputAlignmentRef = framework::readAlignment($inputAlignmentFilename, 0);
 	# paranoid
 	# verify that all rows in alignment are the same
 	if (!verifyAlignmentRowsSameLength($inputAlignmentRef)) {
